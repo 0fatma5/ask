@@ -1,0 +1,21 @@
+<odoo>
+
+    <menuitem
+        id="egyptian_school_root_menu"
+        name="Egyptian Schools"
+    />
+
+    <menuitem
+        id="school_menu"
+        name="Schools"
+        parent="egyptian_school_root_menu"
+
+    />
+    <menuitem
+        id="student_school_menu"
+        name="Students"
+        parent="school_menu"
+
+
+    />
+</odoo>

@@ -1,0 +1,117 @@
+<odoo>
+    <!-- Tree View for School -->
+    <record id="School_view_tree" model="ir.ui.view">
+        <field name="name">school tree</field>
+        <field name="model">school</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="location"/>
+                <field name="school_type" />
+                <field name="no_of_students"/>
+                <field name="no_of_teachers"/>
+                <field name="campus_size"/>
+            </tree>
+        </field>
+    </record>
+
+    <!-- Form View for School -->
+    <record id="school_view_form" model="ir.ui.view">
+        <field name="name">school form</field>
+        <field name="model">school</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General Info">
+                            <field name="name" required="1"/>
+                            <field name="location"/>
+                            <field name="campus_size"/>
+                            <field name="school_type" />
+                        </group>
+                        <group string="Additional Info">
+                            <field name="no_of_students"/>
+                            <field name="no_of_teachers"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+        <!-- Tree View for School -->
+    <record id="student_view_tree" model="ir.ui.view">
+        <field name="name">student tree</field>
+        <field name="model">student</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="name" />
+                <field name="age"/>
+                <field name="student_grade"/>
+                <field name="student_id"/>
+                <field name="gender"/>
+                <field name="enrollment_date"/>
+            </tree>
+        </field>
+    </record>
+    <record id="student_view_form" model="ir.ui.view">
+        <field name="name">student form</field>
+        <field name="model">student</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group string="General Info">
+                            <field name="name" required="1"/>
+                            <field name="age"/>
+                            <field name="student_grade"/>
+                        </group>
+                        <group string="Additional Info">
+                            <field name="student_id" required="1"/>
+                            <field name="gender"/>
+                            <field name="enrollment_date" required="1"/>
+                        </group>
+                    </group>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="school_action" model="ir.actions.act_window">
+        <field name="name">Schools</field>
+        <field name="res_model">school</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+        <record id="student_action" model="ir.actions.act_window">
+        <field name="name">Students</field>
+        <field name="res_model">student</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+
+    <menuitem
+        id="School_menu_item"
+        name="School"
+        parent="school_menu"
+        action="school_action"
+
+    />
+        <menuitem
+        id="Student_menu_item"
+        name="Students"
+        parent="student_school_menu"
+        action="student_action"
+
+    />
+</odoo>
